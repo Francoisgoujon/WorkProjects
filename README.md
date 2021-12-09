@@ -1,5 +1,7 @@
 # WorkProjects
+
 Quelques projet de cours et projet personnels
+François GOUJON
 
 ML : 
 FacePrediction : 3 notebook sur des modèles de prédiction de semtiment et d'âge à partir de datasets de photos de visages
