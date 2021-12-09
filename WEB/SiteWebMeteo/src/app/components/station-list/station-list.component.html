@@ -1,0 +1,40 @@
+<ngb-accordion [closeOthers]="true" #acc="ngbAccordion">
+  <ngb-panel class="panel">
+    <ng-template ngbPanelHeader>
+      <div class="d-flex align-items-center justify-content-between">
+        <button (click)="changeProvColor($event)" class="btn btn-link container-fluid text-left pl-0" ngbPanelToggle>
+          TOUTES LES STATIONS
+        </button>
+      </div>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <ul #nav="ngbNav" [(activeId)]="active" class="nav-pills" ngbNav orientation="vertical">
+        <li *ngFor="let s of allStations | orderBy: 'Name'" ngbNavItem>
+          <a (click)="onClick(s)" ngbNavLink>{{ s.Name }} ({{s["TC ID"]}})</a>
+        </li>
+      </ul>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel *ngFor="let province of ProvinceNames" class="panel">
+    <!-- CODE EMPRUNTÉ:
+         Les lignes suivantes sont basées sur un exemple la documentation de ng-bootstrap du site :
+         https://ng-bootstrap.github.io/#/components/accordion/examples#header
+    -->
+    <ng-template ngbPanelHeader>
+      <div class="d-flex align-items-center justify-content-between">
+        <button ngbPanelToggle class="btn btn-link container-fluid text-left pl-0"
+                (click)="changeProvColor($event)"> {{ province }} </button>
+      </div>
+    </ng-template>
+    <!-- FIN DU CODE EMPRUNTÉ -->
+    <ng-template ngbPanelContent>
+        <!-- https://github.com/VadimDez/ngx-order-pipe -->
+        <!-- https://ng-bootstrap.github.io/#/components/nav/examples -->
+      <ul ngbNav #nav="ngbNav" class="nav-pills" orientation="vertical" [(activeId)]="active">
+        <li *ngFor="let s of StationsDict[province] | orderBy: 'Name'" ngbNavItem>
+          <a (click)="onClick(s)" ngbNavLink>{{ s.Name }} ({{s["TC ID"]}})</a>
+        </li>
+      </ul>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

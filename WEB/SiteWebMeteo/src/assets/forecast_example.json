@@ -1,0 +1,73 @@
+{
+  "currentWeather": {
+    "summary": "<b>Enregistr\u00e9es \u00e0:</b> Edmonton Blatchford 14h00 HAR samedi 26 juin 2021 <br/>\n<b>Temp\u00e9rature:</b> 31,3&deg;C <br/>\n<b>Pression / Tendance:</b> 101,9 kPa \u00e0 la baisse<br/>\n<b>Humidit\u00e9:</b> 30 %<br/>\n<b>Humidex:</b> 33 <br/>\n<b>Point de ros\u00e9e:</b> 11,7&deg;C <br/>\n<b>Vent:</b> ONO 22 km/h<br/>\n<b>Cote air sant\u00e9:</b> 3 <br/>",
+    "title": "Conditions actuelles: 31,3\u00b0C",
+    "updated": "2021-06-26T20:00:00Z"
+  },
+  "forecast": [
+    {
+      "summary": "Ensoleill\u00e9. Vents devenant du nord-ouest \u00e0 20 km/h avec rafales \u00e0 40 cet apr\u00e8s-midi. Maximum 31. Humidex 34. Indice UV de 9 ou tr\u00e8s \u00e9lev\u00e9. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Samedi: Ensoleill\u00e9. Maximum 31."
+    },
+    {
+      "summary": "D\u00e9gag\u00e9. Vents du nord-ouest de 20 km/h avec rafales \u00e0 40 devenant l\u00e9gers ce soir. Minimum 19. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Ce soir et cette nuit: D\u00e9gag\u00e9. Minimum 19."
+    },
+    {
+      "summary": "Ensoleill\u00e9. Maximum 31. Humidex 34. Indice UV de 9 ou tr\u00e8s \u00e9lev\u00e9. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Dimanche: Ensoleill\u00e9. Maximum 31."
+    },
+    {
+      "summary": "D\u00e9gag\u00e9. Minimum 20. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Dimanche soir et nuit: D\u00e9gag\u00e9. Minimum 20."
+    },
+    {
+      "summary": "Ensoleill\u00e9. Maximum 36. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Lundi: Ensoleill\u00e9. Maximum 36."
+    },
+    {
+      "summary": "D\u00e9gag\u00e9. Minimum 21. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Lundi soir et nuit: D\u00e9gag\u00e9. Minimum 21."
+    },
+    {
+      "summary": "Ensoleill\u00e9. Maximum 38. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Mardi: Ensoleill\u00e9. Maximum 38."
+    },
+    {
+      "summary": "D\u00e9gag\u00e9. Minimum 22. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Mardi soir et nuit: D\u00e9gag\u00e9. Minimum 22."
+    },
+    {
+      "summary": "Ensoleill\u00e9. Maximum 38. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Mercredi: Ensoleill\u00e9. Maximum 38."
+    },
+    {
+      "summary": "D\u00e9gag\u00e9. Minimum 21. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Mercredi soir et nuit: D\u00e9gag\u00e9. Minimum 21."
+    },
+    {
+      "summary": "Ensoleill\u00e9. Maximum 35. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Jeudi: Ensoleill\u00e9. Maximum 35."
+    },
+    {
+      "summary": "Passages nuageux. Minimum 19. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Jeudi soir et nuit: Passages nuageux. Minimum 19."
+    },
+    {
+      "summary": "Alternance de soleil et de nuages. Maximum 31. Pr\u00e9visions \u00e9mises 11h00 HAR samedi 26 juin 2021",
+      "title": "Vendredi: Alternance de soleil et de nuages. Maximum 31."
+    }
+  ],
+  "lastUpdate": "2021-06-26T20:20:02Z",
+  "link": "https://www.meteo.gc.ca/city/pages/ab-50_metric_f.html",
+  "stationName": "Edmonton - M\u00e9t\u00e9o - Environnement Canada",
+  "warnings": {
+    "link": {
+      "@href": "https://www.meteo.gc.ca/warnings/report_f.html?ab33",
+      "@type": "text/html"
+    },
+    "summary": "Le public de la r\u00e9gion concern\u00e9e doit porter une attention particuli\u00e8re aux conditions m\u00e9t\u00e9orologiques potentiellement dangereuses et prendre les mesures de s\u00e9curit\u00e9 qui s'imposent. \u00c9mis \u00e0: 10h30 HAR samedi 26 juin 2021",
+    "title": "AVERTISSEMENT DE CHALEUR , Edmonton",
+    "updated": "2021-06-26T16:30:00Z"
+  }
+}

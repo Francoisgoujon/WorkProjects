@@ -1,0 +1,40 @@
+call louerfilm(997690,119190);
+
+select * from "pret";
+
+select * from "pretencours";
+
+select * from "pretarchive";
+
+select count(*) from "exemplaire" where "id_film" = 119190 and statut = 'disponible';
+
+select "quantitestock" from "film" where "id_film" = 119190;
+
+select * from "client" where id_personne = 997690;
+
+call rendrefilm(997690, 101);
+
+
+courriel : RobertCFlores21@gmail.com
+mdp :eishie3meiH
+
+
+                courriel                 |     mdp      
+-----------------------------------------+--------------
+ RobertCFlores21@gmail.com               | eishie3meiH
+ KristinRWarren54@gmail.com              | ohnic7Mei
+ LauretteMSommerfield13@hotmail.com      | JeoZoh1ka
+ NicholasTHudgins57@gmail.com            | Ein7Eecie7ef
+ AndrewEFrost47@gmail.com                | iuwauGhuo0mo
+ MichaelCVelasquez5@gmail.com            | mif2Phoiw
+ SusanTWhite69@gmail.com                 | ighiepe4Yoh
+ LouiseRCook6@hotmail.com                | xo3Eic7z
+ PaulinePGall87@yahoo.com                | iuz4ahgah0Oo
+ CareyJPerez71@hotmail.com               | ooK4thai2u
+ AnthonyGMcdougal82@yahoo.com            | vue5Lu6Ph
+ AndreaTGraves11@gmail.com               | Uyael2meev8x
+ KellyJMoore82@hotmail.com               | aex2Ii2a
+ MarkAElamin20@yahoo.com                 | eehahPh9
+ ScottGAdkisson23@hotmail.com            | gae2ChooBi
+ NancyHFloyd74@hotmail.com               | Ech0loith
+ 

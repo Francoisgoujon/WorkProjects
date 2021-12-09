@@ -1,0 +1,21 @@
+<!-- https://ng-bootstrap.github.io/#/components/dropdown/examples -->
+<div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{ selection }}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem (click)="changeDropdownName(0)">Informations actuelles</button>
+        <button ngbDropdownItem (click)="changeDropdownName(1)">Prévisions</button>
+        <button ngbDropdownItem (click)="changeDropdownName(2)">Aucune informations</button>
+      </div>
+    </div>
+</div>
+
+<div class="map"
+     leaflet
+     [leafletOptions]="options"
+     [leafletLayers]="layers"
+     (leafletMapReady)="onMapReady($event)"
+     >
+</div>
+

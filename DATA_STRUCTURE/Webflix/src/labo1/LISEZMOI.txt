@@ -1,0 +1,63 @@
+LISEZMOI.txt
+
+Équipe 3 : Labo1 du cours LOG660
+
+Présentation des différents fichiers du répertoire src :
+
+
+LectureBD.java : 
+
+Classe permettant l'interfaçage entre le code JAVA et la base de donnée,
+ainsi que la lecture des fichiers xml de données pour la génération des tables.
+
+La méthode main permet la génération des tables et procédures via les fichiers SQL,
+puis l'insertion des données dans celles-ci.
+
+procedurePsql.sql :
+Script de génération des procédures en synthaxe postgreSQL
+
+SchemaPSQL.sql :
+Script de génération des tables en synthaxe postgreSQL
+
+reset.sql :
+Script de réinitialisation de la BD en synthaxe postgreSQL
+
+SchemaPSQL_Insertion.sql :
+Script d'insertion des abonnements dans la table abonnement
+
+
+
+Procédure de génération de la base de donnée :
+
+
+    - Démarrer un serveur postgreSQL au port 5432 (port par défaut).
+    - Créer un base de donnée "dvdrental" en ligne de commande : psql CREATE DATABASE dvdrental.
+    - Exécuter les méthode main de LectureBD.java pour générer les tables et remplir la base de donnée : 
+        cela va remplir les tables :
+        abonnement
+        acteurfilms     
+        artiste         
+        bandeannonce    
+        cartecredit     
+        client                   
+        exemplaire      
+        film            
+        genre           
+        genrefilm       
+        personne                              
+        realisateurfilms
+        scenariste      
+    - Exécuter la méthode main de Main.java permet de créer un objet LectureBD.java qui permettar d'intéragir
+        avec la base de donnée depuis JAVA. Des méthodes sont présentes en exemple pour l'appel des procédures.
+
+Procédure d'utilisation de la base de donéne :
+
+    - Démarrer un serveur postgreSQL au port 5432 (port par défaut).
+    - L'éxécution de la méthode main de la classe Main permet de générer une instance
+        de LectureBD qui peut ensuite être utilisé pour l'interfaçage avec la BD.
+        Il s'agit ici d'un exemple et donc la méthode main n'a aucune action mais
+        cela permet de voir comment lien sera fait entre le client et le serveur SQL.
+
+
+
+Les .jar utilisés sont présents dans le répertoire lib.

@@ -1,0 +1,10 @@
+h3 {
+  font-family: "Times New Roman";
+  font-weight: bold;
+  color:cadetblue;
+}
+
+ngb-accordion::ng-deep .card-body {
+  overflow-y: auto;
+  height: 300px;
+}

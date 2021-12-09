@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Pret" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="pret">
+        <id name="idPret" type="int">
+            <column name="id_pret"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="labo1.Hibernate.src.Client" embed-xml="true" fetch="select" insert="true" name="client" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="id_personne" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="datepret" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="datepret" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nocopie" optimistic-lock="true" type="int" unique="false">
+            <column name="nocopie" not-null="true"/>
+        </property>
+        <one-to-one class="labo1.Hibernate.src.Pretarchive" constrained="false" embed-xml="true" name="pretarchive"/>
+        <one-to-one class="labo1.Hibernate.src.Pretencours" constrained="false" embed-xml="true" name="pretencours"/>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="exemplaires" optimistic-lock="true" sort="unsorted" table="exemplaire">
+            <key on-delete="noaction">
+                <column name="id_pret" unique="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Exemplaire" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Abonnement" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="abonnement">
+        <id name="codeabo" type="string">
+            <column length="2" name="codeabo"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nbpretmax" optimistic-lock="true" type="int" unique="false">
+            <column name="nbpretmax" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dureepretmax" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="dureepretmax"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="clients" optimistic-lock="true" sort="unsorted" table="client">
+            <key on-delete="noaction">
+                <column length="2" name="codeabo" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Client" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

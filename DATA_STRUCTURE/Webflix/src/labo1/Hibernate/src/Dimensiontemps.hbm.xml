@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Dimensiontemps" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="dimensiontemps">
+        <id name="iddatelocation" type="int">
+            <column name="id_date_location"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="datelocation" optimistic-lock="true" type="java.sql.Timestamp" unique="false">
+            <column name="datelocation" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="heurejour" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="heurejour" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="joursemaine" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="joursemaine" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="moisannee" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="moisannee" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="faitslocationfilms" optimistic-lock="true" sort="unsorted" table="faitslocationfilm">
+            <key on-delete="noaction">
+                <column name="id_date_location" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Faitslocationfilm" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Bandeannonce" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="bandeannonce">
+        <composite-id class="labo1.Hibernate.src.BandeannonceId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="lien" type="string">
+                <column length="300" name="lien"/>
+            </key-property>
+            <key-property name="idFilm" type="int">
+                <column name="id_film"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="labo1.Hibernate.src.Film" embed-xml="true" fetch="select" insert="false" name="film" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="id_film" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,41 @@
+<ng-container *ngIf="status">
+  <p>
+    <ngb-alert [type]="'danger'" [dismissible]="false">
+      <strong>Attention!</strong> Une erreur provenant du serveur a été retournée.
+      <br>
+      {{allStation.msg}}
+    </ngb-alert>
+  </p>
+</ng-container>
+<ng-container *ngIf="!status">
+  <h4 *ngIf="allStation && allStation[0]">{{ allStation[0]["Station Name"] }}</h4>
+  <br>
+    <table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Période (24h)</th>
+        <th scope="col">Température réelle</th>
+        <th scope="col">Température ressentie</th>
+        <th scope="col">Météo</th>
+        <th scope="col">Humidité</th>
+        <th scope="col">Direction du vent</th>
+        <th scope="col">Vitesse du vent (km/h)</th>
+        <th scope="col">Pression atmosphérique</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let station of allStation">
+      <ng-container *ngIf='station["Month"] == date.month && station["Day"] == date.day'>
+        <td>{{ station["Time (LST)"] }}</td>
+        <td>{{ station["Weather"] }}</td>
+        <td>{{ station["Dew Point Temp (°C)"] }}</td>
+        <td>{{ station["Temp (°C)"] }}</td>
+        <td>{{ station["Hmdx"] }}</td>
+        <td>{{ station["Wind Dir (10s deg)"] }}</td>
+        <td>{{ station["Wind Spd (km/h)"] }}</td>
+        <td>{{ station["Stn Press (kPa)"] }}</td>
+      </ng-container>
+    </tr>
+    </tbody>
+    </table>
+</ng-container>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Dimensionfilm" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="dimensionfilm">
+        <id name="idfilm" type="int">
+            <column name="id_film"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="titre" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="titre" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="anneesortie" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="anneesortie"/>
+        </property>
+        <property generated="never" lazy="false" name="paysorigine" optimistic-lock="true" type="string" unique="false">
+            <column length="15" name="paysorigine"/>
+        </property>
+        <property generated="never" lazy="false" name="actionfilm" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="actionfilm" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="animation" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="animation" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="aventure" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="aventure" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="biography" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="biography" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="comedy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="comedy" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="drama" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="drama" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="family" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="family" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="fantasy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="fantasy" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="romance" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="romance" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="scifi" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="scifi" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="thriller" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="thriller" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="faitslocationfilms" optimistic-lock="true" sort="unsorted" table="faitslocationfilm">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Faitslocationfilm" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

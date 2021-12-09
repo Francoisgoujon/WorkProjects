@@ -1,0 +1,180 @@
+LISEZMOI.txt
+
+EQUIPE 3 LABO LOG660
+
+Guide d'utilisation : 
+
+Sommaire :
+    Première partie : labo1 (ligne 11)
+    Deuxième partie : labo2 (ligne 74)
+    Troisième partie : labo4 (ligne 117)
+
+Première partie : guide pour la mise en place de la base de données (LABO1)
+
+Présentation des différents fichiers du répertoire src/labo1/Script_de_lecture :
+
+
+LectureBD.java : 
+
+Classe permettant l'interfaçage entre le code JAVA et la base de donnée,
+ainsi que la lecture des fichiers xml de données pour la génération des tables.
+
+La méthode main permet la génération des tables et procédures via les fichiers SQL,
+puis l'insertion des données dans celles-ci.
+
+procedurePsql.sql :
+Script de génération des procédures en synthaxe postgreSQL
+
+SchemaPSQL.sql :
+Script de génération des tables en synthaxe postgreSQL
+
+reset.sql :
+Script de réinitialisation de la BD en synthaxe postgreSQL
+
+SchemaPSQL_Insertion.sql :
+Script d'insertion des abonnements dans la table abonnement
+
+
+
+Procédure de génération de la base de donnée :
+
+
+    - Démarrer un serveur postgreSQL au port 5432 (port par défaut).
+    - Créer un base de donnée "dvdrental" en ligne de commande : psql CREATE DATABASE dvdrental.
+    - Exécuter les méthode main de LectureBD.java pour générer les tables et remplir la base de donnée : 
+        cela va remplir les tables :
+        abonnement
+        acteurfilms     
+        artiste         
+        bandeannonce    
+        cartecredit     
+        client                   
+        exemplaire      
+        film            
+        genre           
+        genrefilm       
+        personne                              
+        realisateurfilms
+        scenariste      
+
+Procédure d'utilisation de la base de donéne :
+
+    - Démarrer un serveur postgreSQL au port 5432 (port par défaut).
+    - L'éxécution de la méthode main de la classe Main permet de générer une instance
+        de LectureBD qui peut ensuite être utilisé pour l'interfaçage avec la BD.
+        Il s'agit ici d'un exemple et donc la méthode main n'a aucune action mais
+        cela permet de voir comment lien sera fait entre le client et le serveur SQL.
+
+
+
+Les .jar utilisés sont présents dans le répertoire lib.
+
+
+Deuxième partie : guide pour l'utilisation de l'UI permettant d'intéragir avec la base de donnée(LABO2)
+
+Presentation des différents dossier du répertoire src/labo1 :
+
+Hibernate/src : 
+
+	- Toutes les classes java et leur fichier .hbm.xml associé pour l'interfaçage avec la base de 
+        données. Tous ces fichiers ont été générés automatiquement par Hibernate via reverse 
+        engineering du schema de la BD.
+
+Script_de_lecture : 
+    - Présenté en première partie
+
+methodes : 
+    - Répertoire pour la couche métier
+    - Fichier HibernateQueries servant de façade. Cette classe contient toutes les methodes dont nous 
+        pouvons avoir besoin dans notre UI (louer un film, rendre un film, se connecter, se deconnecter, etc)
+
+UI : 
+    - Répertoire pour la couche UI
+    - Répertoire control : contient les classes implémentant les controlleurs
+    - Répertoire main : contient la classe UIbuild générant l'UI et la classe mainUI qui permet de lancer
+        une instance de l'UI liée à une instance de HibernateQueries
+
+Procédure d'utilisation :
+
+    - Étape 0 : générer la base de données avec la procédure de la partie 1 (rouler le main de LectureBD.java de Script_de_lecture)
+    - Étape 1 : rouler le main de mainUI.java pour lancer l'UI.
+    - Étape 2 : Utilisation de l'UI : 
+                        - Possibilté de parcourir les films sans être connecté.
+                        - Connexion avec le courriel et le mot de passe de l'utilisateur
+                            (ex : courriel : RobertCFlores21@gmail.com ; mdp : eishie3meiH)
+                            En cas de mauvais mail ou mot de passe un message de notification est affiché
+                            en haut à gauche.
+                        - Une fois connecté :
+                            - Les emprunts de l'utilisateur apparaissent sur la droite, l'utilisateur 
+                                peut sélectionner celui de son choix puis appyer sur le bouton rendre pour 
+                                rendre l'exemplaire du film. Une notification appairait pour signifier le bon 
+                                retour de l'exemplaire (toujours en haut à gauche). Cette fonctionnalité n'était pas explicitement demandée mais elle permet une utilisation plus simple de l'UI pour tester son fonctionnement. Si l'on souhaite que le client n'y ai pas accès, il suffira de cacher le bouton.
+                            - Si l'utilisateur effectue une recherche, il peut sélectionner le film de son 
+                                choix et appuer sur louer pour le louer. L'emprunt appairait alors dans ses 
+                                emprunts sur la droite. Une notification appairait également.
+
+
+Troisième partie : API d'analyse et système de cotes 
+
+Presentation des différents dossier du répertoire src/labo1 :
+
+Hibernate/src : 
+
+	- Toutes les classes java et leur fichier .hbm.xml associé pour l'interfaçage avec la base de 
+        données. Une grande partie de ces fichiers ont été générés automatiquement par Hibernate via reverse 
+        engineering du schema de la BD. Nouveaux ajouts : Dimensionclient, Dimensionfilm, Dimensiontemps, Faitslocationfilm,
+        Cotemoyenne, Correlationfilms
+
+Script_de_lecture : 
+    - Présenté en première partie : run LectureBD.java pour générer la BD : Attention l'insertion des côtes est 
+    longue (environ 45min pour 992407 insertions). 
+    - Nouveaux ajouts : 
+            - schemaEtoile.sql : script de génération des tables pour l'analyse de données
+            - schemaCotes.sql : script de génération de la table de côtes 
+            - insert_cote.sql : script d'insertion des données dans la table de côtes. Données récupérées depuis la base de données
+            oracle du cours.
+            - creationView.sql : création des vues matérialisées Cotemoyenne et Correlationfilms
+            - tache_2_oracle : création de la connexion à la db externe et des materialized view en synthaxe Oracle
+            - ImportProcedures.java : permet de run le script procedurePsql.sql seul
+
+methodes : 
+    - Répertoire pour la couche métier
+    - Fichier HibernateQueries servant de façade. Déjà présenté. Nouveaux ajouts :
+        méthodes pour connaître la côte d'un film par son id : getCoteFilm(), les films les plus corrélés à un 
+        film par son id : getRecommandation(), l'ensemble des films vu par l'utilisateur : getTousEmpruntsUtilisateur()
+        pour les retirer des recommandations. 
+
+        Ajouts dans getInfoFilmById(id) pour que la cote moyenne et les 3 films les plus corrélés et non vus s'affichent 
+        dans la liste des infos du film.
+    - Fichier ApiAnalyse.java : sert d'api pour l'analyse des données de locations
+        Ouvrir le fichier et choisir les paramètres que l'on veut dans la ligne du main : 
+            session.analyse(20, "Tous", "Tous", "Tous");
+
+        4 paramètres : groupe age, province, jour (en anglais), mois (en anglais)
+            Pour groupe age : 
+            0 : 0 - 5 ans
+            1 : 5 - 10 ans
+            2 : 10 - 15 ans 
+            3 : 15 - 20 ans
+            4 : 20 - 25 ans
+            5 : 25 - 30 ans
+            6 : 30 - 35 ans
+            7 : 35 - 40 ans
+            8 : 40 - 45 ans 
+            9 : 45 - 50 ans
+            10 : 50 - 55 ans
+            11 : 55 - 60 ans 
+            12 : 60 - 65 ans 
+            13 : 65 - 70 ans
+            14 : 70 - 75 ans
+            15 : 75 - 80 ans
+            16 : 80 - 85 ans 
+            17 : 85 - 90 ans
+            18 : 90 - 95 ans 
+            19 : 95 - 100 ans
+            20 : Tous
+
+        Puis run le main et les résultats s'affichent dans la console.
+
+UI : 
+    - Pas de changements

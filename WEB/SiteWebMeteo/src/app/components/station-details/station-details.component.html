@@ -1,0 +1,85 @@
+<h2 *ngIf="station && station[0]">{{station[0]["Station Name"]}} {{stationCode}}</h2>
+
+
+<div [ngSwitch]="active">
+  <div *ngSwitchDefault>
+    <h4>Plage de dates</h4>
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="row">
+          <div class="col-md-2 d-flex align-items-center">De :</div>
+          <div class="col-md-5">
+            <ng-select (change)="onChange()" [(ngModel)]="fromYear" [items]="years" [placeholder]="'Année'"></ng-select>
+          </div>
+          <div class="col-md-5">
+            <ng-select (change)="onChange()" [(ngModel)]="fromMonth" [items]="months" [placeholder]="'Mois'"></ng-select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2 d-flex align-items-center">À :</div>
+          <div class="col-md-5">
+            <ng-select (change)="onChange()" [(ngModel)]="toYear" [items]="years" [placeholder]="'Année'"></ng-select>
+          </div>
+          <div class="col-md-5">
+            <ng-select (change)="onChange()" [(ngModel)]="toMonth" [items]="months" [placeholder]="'Mois'"></ng-select>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6 d-flex align-items-center">
+        <button (click)="reset()" class="btn-lg btn-primary">Toutes les données</button>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'datePicker'">
+    <h4>Choisissez une journée</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <ngb-datepicker [(ngModel)]="datePicker" (navigate)="date = $event.next"></ngb-datepicker>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'empty'">
+  </div>
+</div>
+
+<nav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mt-2" ngbNav>
+  <ng-container ngbNavItem>
+    <a ngbNavLink>Données</a>
+    <ng-template ngbNavContent>
+      <app-data-tab [station]="filteredStation"></app-data-tab>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a ngbNavLink>Statistiques</a>
+    <ng-template ngbNavContent>
+      <app-statistics-tab [station]="filteredStation"></app-statistics-tab>
+    </ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="'datePicker'">
+    <a ngbNavLink>Infos historiques</a>
+    <ng-template ngbNavContent>
+      <app-history-tab [stationId]="stationCode" [date]="datePicker"></app-history-tab>
+    </ng-template>
+  </ng-container>
+  <ng-container [ngbNavItem]="'empty'">
+    <a ngbNavLink>Prévisions météo</a>
+    <ng-template ngbNavContent>
+      <app-forecast-tab [stationCode]="stationCode"></app-forecast-tab>
+    </ng-template>
+  </ng-container>
+  <ng-container ngbNavItem>
+    <a ngbNavLink>Carte géographique</a>
+    <ng-template ngbNavContent>
+      <app-map-tab [stationCode]="stationCode"></app-map-tab>
+    </ng-template>
+  </ng-container>
+</nav>
+
+<div [ngbNavOutlet]="nav" class="station-details overflow-auto mt-2"></div>

@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/leaflet/dist/leaflet.css";
+
+.main-app-container.row{
+    margin-left:0;
+}
+.station-details{
+    width:1100px;
+}
+.station-details.overflow-auto{
+    height:700px;
+}
+
+.station-list{
+    margin-right:10px
+}

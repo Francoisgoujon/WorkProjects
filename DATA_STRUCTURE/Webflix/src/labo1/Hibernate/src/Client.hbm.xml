@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Client" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="client">
+        <id name="idPersonne" type="int">
+            <column name="id_personne"/>
+            <generator class="foreign">
+                <param name="property">personne</param>
+            </generator>
+        </id>
+        <many-to-one class="labo1.Hibernate.src.Abonnement" embed-xml="true" fetch="select" insert="true" name="abonnement" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="2" name="codeabo" not-null="true"/>
+        </many-to-one>
+        <one-to-one class="labo1.Hibernate.src.Personne" constrained="true" embed-xml="true" name="personne"/>
+        <property generated="never" lazy="false" name="nbfilmsactuellementempruntes" optimistic-lock="true" type="int" unique="false">
+            <column name="nbfilmsactuellementempruntes" not-null="true"/>
+        </property>
+        <one-to-one class="labo1.Hibernate.src.Cartecredit" constrained="false" embed-xml="true" name="cartecredit"/>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="prets" optimistic-lock="true" sort="unsorted" table="pret">
+            <key on-delete="noaction">
+                <column name="id_personne" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Pret" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

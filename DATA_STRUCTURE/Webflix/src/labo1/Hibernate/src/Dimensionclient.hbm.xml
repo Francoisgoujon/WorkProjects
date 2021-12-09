@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Dimensionclient" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="dimensionclient">
+        <id name="idclient" type="int">
+            <column name="id_client"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nomcomplet" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="nomcomplet" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="groupeage" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="groupeage"/>
+        </property>
+        <property generated="never" lazy="false" name="courriel" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="courriel"/>
+        </property>
+        <property generated="never" lazy="false" name="datepremierelocation" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="datepremierelocation"/>
+        </property>
+        <property generated="never" lazy="false" name="codepostal" optimistic-lock="true" type="string" unique="false">
+            <column length="7" name="codepostal" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="ville" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="ville" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="province" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="province" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="faitslocationfilms" optimistic-lock="true" sort="unsorted" table="faitslocationfilm">
+            <key on-delete="noaction">
+                <column name="id_client" not-null="true" unique="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Faitslocationfilm" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

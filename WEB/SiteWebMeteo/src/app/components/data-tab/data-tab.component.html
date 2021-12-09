@@ -1,0 +1,34 @@
+<div class="container weather-data-tab">
+    <h2>Données météo</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Année</th>
+          <th scope="col">Mois</th>
+          <th scope="col">Température maximale moyenne (°C)</th>
+          <th scope="col">Température minimale moyenne (°C)</th>
+          <th scope="col">Température moyenne (°C)</th>
+          <th scope="col">Température maximale enregistrée (°C)</th>
+          <th scope="col">Température minimale enregistrée (°C)</th>
+          <th scope="col">Pluie totale (mm)</th>
+          <th scope="col">Neige totale (cm)</th>
+          <th scope="col">Vitesse du vent maximale (km/h)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of station">
+          <td>{{s["Year"]}}</td>
+          <td>{{s["Month"]}}</td>
+          <td>{{s["Mean Max Temp (°C)"]}}</td>
+          <td>{{s["Mean Min Temp (°C)"]}}</td>
+          <td>{{s["Mean Temp (°C)"]}}</td>
+          <td>{{s["Extr Max Temp (°C)"]}}</td>
+          <td>{{s["Extr Min Temp (°C)"]}}</td>
+          <td>{{s["Total Rain (mm)"]}}</td>
+          <td>{{s["Total Snow (cm)"]}}</td>
+          <td>{{s["Spd of Max Gust (km/h)"]}}</td>
+          
+        </tr>        
+      </tbody>
+    </table>
+  </div>

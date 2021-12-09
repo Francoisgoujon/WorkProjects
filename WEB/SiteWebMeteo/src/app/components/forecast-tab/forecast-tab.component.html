@@ -1,0 +1,29 @@
+<div *ngIf="stationForecast">
+  <div *ngIf="stationForecast.msg">
+    <ngb-alert [type]="'danger'" [dismissible]="false">
+      <strong>Attention!</strong> Une erreur provenant du serveur a été retournée.
+      <br>
+      {{stationForecast.msg}}
+    </ngb-alert>
+  </div>
+  <div *ngIf="stationForecast.stationName">
+    <h4>{{stationForecast.stationName}}</h4>
+    <a [href]="stationForecast.link">Lien vers la page d'Environnement Canada</a>
+    <br>
+    <small>Dernière modification : {{stationForecast.lastUpdate}}</small>
+    <br>
+    <h4>{{stationForecast.warnings.title}}</h4>
+    <p>{{stationForecast.warnings.summary}}</p>
+    <br>
+    <h4>{{stationForecast.currentWeather.title}}</h4>
+    <div [innerHTML]="stationForecast.currentWeather.summary"></div>
+    <br>
+    <h4>Prévisions météo</h4>
+    <ul *ngFor="let forecast of stationForecast.forecast">
+      <li>
+        <h5>{{forecast.title}}</h5>
+        <p>{{forecast.summary}}</p>
+      </li>
+    </ul>
+  </div>
+</div>

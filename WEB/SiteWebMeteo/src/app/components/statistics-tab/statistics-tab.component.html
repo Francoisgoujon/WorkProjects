@@ -1,0 +1,116 @@
+<!-- Début code statistics-tab François Goujon -->
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Donnée</th>
+      <th scope="col">Valeur Maximale</th>
+      <th scope="col">Année</th>
+      <th scope="col">Mois</th>
+      <th scope="col">Valeur Minimale</th>
+      <th scope="col">Année</th>
+      <th scope="col">Mois</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Température moyenne mensuelle (°C)</th>
+      <td>{{TempMoyMens['ValeurMax']}}</td>
+      <td>{{TempMoyMens['AnneeMax']}}</td>
+      <td>{{TempMoyMens['MoisMax']}}</td>
+      <td>{{TempMoyMens['ValeurMin']}}</td>
+      <td>{{TempMoyMens['AnneeMin']}}</td>
+      <td>{{TempMoyMens['MoisMin']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Température extrême (°C)</th>
+      <td>{{TempExtMax['ValeurMax']}}</td>
+      <td>{{TempExtMax['AnneeMax']}}</td>
+      <td>{{TempExtMax['MoisMax']}}</td>
+      <td>{{TempExtMin['ValeurMin']}}</td>
+      <td>{{TempExtMin['AnneeMin']}}</td>
+      <td>{{TempExtMin['MoisMin']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Quantité pluie (mm)</th>
+      <td>{{QtPluie['ValeurMax']}}</td>
+      <td>{{QtPluie['AnneeMax']}}</td>
+      <td>{{QtPluie['MoisMax']}}</td>
+      <td>{{QtPluie['ValeurMin']}}</td>
+      <td>{{QtPluie['AnneeMin']}}</td>
+      <td>{{QtPluie['MoisMin']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Quantité neige (cm)</th>
+      <td>{{QtNeige['ValeurMax']}}</td>
+      <td>{{QtNeige['AnneeMax']}}</td>
+      <td>{{QtNeige['MoisMax']}}</td>
+      <td>{{QtNeige['ValeurMin']}}</td>
+      <td>{{QtNeige['AnneeMin']}}</td>
+      <td>{{QtNeige['MoisMin']}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Vitesse du vent (km/h)</th>
+      <td>{{VitVent['ValeurMax']}}</td>
+      <td>{{VitVent['AnneeMax']}}</td>
+      <td>{{VitVent['MoisMax']}}</td>
+      <td>{{VitVent['ValeurMin']}}</td>
+      <td>{{VitVent['AnneeMin']}}</td>
+      <td>{{VitVent['MoisMin']}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngFor="let mois of MONTHS | keyvalue | orderBy: 'value'">
+
+  <div class="display-4 font-weight-bold p-4">{{mois.key}}</div>
+
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Donnée</th>
+        <th scope="col">Valeur Maximale</th>
+        <th scope="col">Année</th>
+        <th scope="col">Valeur Minimale</th>
+        <th scope="col">Année</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Température moyenne mensuelle (°C)</th>
+        <td>{{TempMoyMois['ValeurMax'][mois.value]}}</td>
+        <td>{{TempMoyMois['AnneeMax'][mois.value]}}</td>
+        <td>{{TempMoyMois['ValeurMin'][mois.value]}}</td>
+        <td>{{TempMoyMois['AnneeMin'][mois.value]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Température extrême (°C)</th>
+        <td>{{TempMaxMois['ValeurMax'][mois.value]}}</td>
+        <td>{{TempMaxMois['AnneeMax'][mois.value]}}</td>
+        <td>{{TempMinMois['ValeurMin'][mois.value]}}</td>
+        <td>{{TempMinMois['AnneeMin'][mois.value]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Quantité pluie (mm)</th>
+        <td>{{QtpluieMois['ValeurMax'][mois.value]}}</td>
+        <td>{{QtpluieMois['AnneeMax'][mois.value]}}</td>
+        <td>{{QtpluieMois['ValeurMin'][mois.value]}}</td>
+        <td>{{QtpluieMois['AnneeMin'][mois.value]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Quantité neige (cm)</th>
+        <td>{{QtNeigeMois['ValeurMax'][mois.value]}}</td>
+        <td>{{QtNeigeMois['AnneeMax'][mois.value]}}</td>
+        <td>{{QtNeigeMois['ValeurMin'][mois.value]}}</td>
+        <td>{{QtNeigeMois['AnneeMin'][mois.value]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Vitesse du vent (km/h)</th>
+        <td>{{VitventMois['ValeurMax'][mois.value]}}</td>
+        <td>{{VitventMois['AnneeMax'][mois.value]}}</td>
+        <td>{{VitventMois['ValeurMin'][mois.value]}}</td>
+        <td>{{VitventMois['AnneeMin'][mois.value]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

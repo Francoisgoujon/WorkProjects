@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Artiste" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="artiste">
+        <id name="noartiste" type="int">
+            <column name="noartiste"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nom" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="nom" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prenom" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="prenom"/>
+        </property>
+        <property generated="never" lazy="false" name="datenaissance" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="datenaissance"/>
+        </property>
+        <property generated="never" lazy="false" name="lieunaissance" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="lieunaissance"/>
+        </property>
+        <property generated="never" lazy="false" name="photo" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="photo"/>
+        </property>
+        <property generated="never" lazy="false" name="biographie" optimistic-lock="true" type="string" unique="false">
+            <column length="60000" name="biographie"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="false" lazy="true" mutable="true" name="films" optimistic-lock="true" sort="unsorted" table="realisateurfilms">
+            <key on-delete="noaction">
+                <column name="noartiste" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="labo1.Hibernate.src.Film" not-found="exception" unique="false">
+                <column name="id_film" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="acteurfilmses" optimistic-lock="true" sort="unsorted" table="acteurfilms">
+            <key on-delete="noaction">
+                <column name="noartiste" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Acteurfilms" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Faitslocationfilm" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="faitslocationfilm">
+        <id name="idlocationfilm" type="int">
+            <column name="id_locationfilm"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="labo1.Hibernate.src.Dimensionclient" embed-xml="true" fetch="select" insert="false" name="dimensionclient" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="id_client" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="labo1.Hibernate.src.Dimensionfilm" embed-xml="true" fetch="select" insert="false" name="dimensionfilm" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="id_film" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="labo1.Hibernate.src.Dimensiontemps" embed-xml="true" fetch="select" insert="false" name="dimensiontemps" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="id_date_location" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

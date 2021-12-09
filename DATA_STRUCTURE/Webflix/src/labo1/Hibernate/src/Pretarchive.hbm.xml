@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Pretarchive" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="pretarchive">
+        <id name="idPret" type="int">
+            <column name="id_pret"/>
+            <generator class="foreign">
+                <param name="property">pret</param>
+            </generator>
+        </id>
+        <one-to-one class="labo1.Hibernate.src.Pret" constrained="true" embed-xml="true" name="pret"/>
+        <property generated="never" lazy="false" name="dateretour" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="dateretour" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

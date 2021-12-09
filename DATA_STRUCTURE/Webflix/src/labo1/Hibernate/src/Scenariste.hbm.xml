@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Scenariste" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="scenariste">
+        <composite-id class="labo1.Hibernate.src.ScenaristeId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="idFilm" type="int">
+                <column name="id_film"/>
+            </key-property>
+            <key-property name="nom" type="string">
+                <column length="100" name="nom"/>
+            </key-property>
+            <key-property name="prenom" type="string">
+                <column length="100" name="prenom"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="labo1.Hibernate.src.Film" embed-xml="true" fetch="select" insert="false" name="film" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column name="id_film" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

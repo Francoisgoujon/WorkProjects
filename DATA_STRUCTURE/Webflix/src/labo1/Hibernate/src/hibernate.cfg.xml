@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/dvdrental</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="labo1/Hibernate/src/Film.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Personne.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Exemplaire.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Abonnement.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Pretarchive.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Scenariste.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Artiste.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Cartecredit.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Pretencours.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Pret.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Bandeannonce.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Genre.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Client.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Employe.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Acteurfilms.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Dimensionclient.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Dimensionfilm.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Dimensiontemps.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Faitslocationfilm.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Correlationfilms.hbm.xml"/>
+        <mapping resource="labo1/Hibernate/src/Cotemoyenne.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

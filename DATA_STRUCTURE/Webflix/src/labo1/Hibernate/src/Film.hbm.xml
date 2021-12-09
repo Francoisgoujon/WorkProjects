@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 4 juin 2021 à 20:24:20 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="labo1.Hibernate.src.Film" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="film">
+        <id name="idFilm" type="int">
+            <column name="id_film"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="titre" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="titre" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="anneeproduction" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="anneeproduction"/>
+        </property>
+        <property generated="never" lazy="false" name="paysproduction" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="paysproduction"/>
+        </property>
+        <property generated="never" lazy="false" name="langueoriginale" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="langueoriginale"/>
+        </property>
+        <property generated="never" lazy="false" name="duree" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="duree"/>
+        </property>
+        <property generated="never" lazy="false" name="resumefilm" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="resumefilm"/>
+        </property>
+        <property generated="never" lazy="false" name="affiche" optimistic-lock="true" type="string" unique="false">
+            <column length="2000" name="affiche"/>
+        </property>
+        <property generated="never" lazy="false" name="quantitestock" optimistic-lock="true" type="int" unique="false">
+            <column name="quantitestock" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="exemplaires" optimistic-lock="true" sort="unsorted" table="exemplaire">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Exemplaire" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="artistes" optimistic-lock="true" sort="unsorted" table="realisateurfilms">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="labo1.Hibernate.src.Artiste" not-found="exception" unique="false">
+                <column name="noartiste" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="acteurfilmses" optimistic-lock="true" sort="unsorted" table="acteurfilms">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Acteurfilms" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="scenaristes" optimistic-lock="true" sort="unsorted" table="scenariste">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Scenariste" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="genres" optimistic-lock="true" sort="unsorted" table="genrefilm">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <many-to-many embed-xml="true" entity-name="labo1.Hibernate.src.Genre" not-found="exception" unique="false">
+                <column name="nom_genre" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="bandeannonces" optimistic-lock="true" sort="unsorted" table="bandeannonce">
+            <key on-delete="noaction">
+                <column name="id_film" not-null="true"/>
+            </key>
+            <one-to-many class="labo1.Hibernate.src.Bandeannonce" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>
