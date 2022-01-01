@@ -5,6 +5,7 @@
 
 
 ## ML : 
+Python
 
 FacePrediction : 3 notebook sur des modèles de prédiction de semtiment et d'âge à partir de datasets de photos de visages
 
@@ -14,16 +15,20 @@ ExoDataPrep_DecisionTree : Modèle de prédiction d'accès handicapé dans les b
 
 
 ## WEB :
+Front : HTML, CSS, TypeScript (Angular)
+Back : Python (Flask)
+DB : MongoDB + Docker
 
 Site Web donnant les conditions météos des aéroports du Canada
 
-
 ## DATA STRUCTURES : 
+DB : PostgreSQL 
+Java
 
 Webflix : Simulation de logiciel de gestion de service de location de film. Gestion des données avec une structure PostgreSQL et UI en java.
 
-
 ## IA : 
+Java
 
 AlgoGen : Algorithme génétique appliqué à la résolution du problème des N reines.
 
@@ -36,6 +41,7 @@ Puissance4 : 4 version différentes d'IA de puissance 4
 	Par probabilité/statistique
 
 ## SOLVER PPC :
+Java
 
 Solver de problème par programmation par contrainte. Différentes utilisation incluses :
 	CarreMagique
