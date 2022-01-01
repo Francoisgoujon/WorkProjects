@@ -1,6 +1,6 @@
 # WorkProjects
 
-## Quelques projet de cours et projet personnels
+## Quelques projets de cours et projets personnels
 ### François GOUJON
 
 
@@ -21,3 +21,24 @@ Site Web donnant les conditions météos des aéroports du Canada
 ## DATA STRUCTURES : 
 
 Webflix : Simulation de logiciel de gestion de service de location de film. Gestion des données avec une structure PostgreSQL et UI en java.
+
+
+## IA : 
+
+AlgoGen : Algorithme génétique appliqué à la résolution du problème des N reines.
+
+CSP (Constraint Satisfaction Problem) : Algorithme de résolution de problèmes par satisfaction de contraintes. Appliqué au problème des N Reines
+
+Puissance4 : 4 version différentes d'IA de puissance 4
+	Minimax arbre complet
+	Minimax arbre réduit
+	Par estimation
+	Par probabilité/statistique
+
+## SOLVER PPC :
+
+Solver de problème par programmation par contrainte. Différentes utilisation incluses :
+	CarreMagique
+	Ordonnancement
+	Sudoku
+	Test.java pour essayer les différents algorithmes sur différents problèmes
